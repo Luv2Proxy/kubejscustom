@@ -1,6 +1,7 @@
 // This File has been authored by AllTheMods Staff, or a Community contributor for use in AllTheMods - AllTheMods 10.
 // As all AllTheMods packs are licensed under All Rights Reserved, this file is not allowed to be used in any public packs not released by the AllTheMods Team, without explicit permission.
 
+if (Platform.isLoaded("modern_industrialization")) {
 ServerEvents.recipes(allthemods => {
     allthemods.custom({
         "type": "modern_industrialization:mixer",
@@ -80,33 +81,36 @@ ServerEvents.recipes(allthemods => {
         ]
     }).id("modern_industrialization:vanilla_recipes/assembler/rail")
 
-    allthemods.custom({
-        "neoforge:conditions": [
-            {
-                "type": "neoforge:mod_loaded",
-                "modid": "immersiveengineering"
-            }
-        ],
-        "type": "oritech:centrifuge_fluid",
-        "fluidInput": {
-            "amount": 125,
-            "fluid": "#c:creosote"
-        },
-        "fluidOutputs": [],
-        "ingredients": [
-            {
-                "tag": "minecraft:planks"
-            }
-        ],
-        "results": [
-            {
-                "count": 1,
-                "id": "immersiveengineering:treated_wood_horizontal"
-            }
-        ],
-        "time": 100
-    }).id("oritech:centrifuge/fluid/compat/immersiveengineering/treated_planks")
+if (Platform.isLoaded("immersiveengineering")) {
+        allthemods.custom({
+            "neoforge:conditions": [
+                {
+                    "type": "neoforge:mod_loaded",
+                    "modid": "immersiveengineering"
+                }
+            ],
+            "type": "oritech:centrifuge_fluid",
+            "fluidInput": {
+                "amount": 125,
+                "fluid": "#c:creosote"
+            },
+            "fluidOutputs": [],
+            "ingredients": [
+                {
+                    "tag": "minecraft:planks"
+                }
+            ],
+            "results": [
+                {
+                    "count": 1,
+                    "id": "immersiveengineering:treated_wood_horizontal"
+                }
+            ],
+            "time": 100
+        }).id("oritech:centrifuge/fluid/compat/immersiveengineering/treated_planks")
+    }
 })
+}
 
 if (Platform.isLoaded("modern_industrialization") && Platform.isLoaded("aztech")) {
     let $Tags = Java.loadClass("dev.latvian.mods.kubejs.util.Tags")

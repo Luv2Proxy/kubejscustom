@@ -1,6 +1,7 @@
 // This File has been authored by AllTheMods Staff, or a Community contributor for use in AllTheMods - AllTheMods 10.
 // As all AllTheMods packs are licensed under All Rights Reserved, this file is not allowed to be used in any public packs not released by the AllTheMods Team, without explicit permission.
 
+if (Platform.isLoaded("draconicevolution") && Platform.isLoaded("forbidden_arcanus") && Platform.isLoaded("irons_spellbooks") && Platform.isLoaded("modern_industrialization") && Platform.isLoaded("mysticalagradditions") && Platform.isLoaded("rftoolsbase") && Platform.isLoaded("theurgy") && Platform.isLoaded("xycraft_world")) {
 var miningDimOres = [
     {path: 'runic_stone',                       id:'allthemodium:runic_stone',                   min:65,  max:250,size:4, count:1,   stoneReplaces:"forbidden_arcanus:runic_stone",              deepslateReplaces:"forbidden_arcanus:runic_deepslate",                   endStoneReplaces:null,                                             netherrackReplaces:null},
     {path: 'arcane_crystal_ore',                id:'allthemodium:arcane_crystal_ore',            min:65,  max:250,size:4, count:1,   stoneReplaces:"forbidden_arcanus:arcane_crystal_ore",       deepslateReplaces:"forbidden_arcanus:deepslate_arcane_crystal_ore",      endStoneReplaces:null,                                             netherrackReplaces:null},
@@ -141,3 +142,4 @@ ServerEvents.generateData('after_mods', allthemods => {
 
 // This File has been authored by AllTheMods Staff, or a Community contributor for use in AllTheMods - AllTheMods 10.
 // As all AllTheMods packs are licensed under All Rights Reserved, this file is not allowed to be used in any public packs not released by the AllTheMods Team, without explicit permission.
+}

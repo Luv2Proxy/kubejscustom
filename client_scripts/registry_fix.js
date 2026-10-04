@@ -1,3 +1,4 @@
+if (Platform.isLoaded("biomeswevegone")) {
 ClientEvents.loggedIn(event => {
 	console.log("Logged in: " + event.player)
 	let $Registries = Java.loadClass("net.minecraft.core.registries.Registries")
@@ -7,3 +8,4 @@ ClientEvents.loggedIn(event => {
 		biomeRegistry.addAlias("biomeswevegone:skyrise_vale", "biomeswevegone:skyris_vale")
 	}	
 })
+}
