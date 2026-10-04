@@ -209,20 +209,26 @@ ItemEvents.modifyTooltips(allthemods => {
 		])
 	}
 	// Botany Pot Sculk
-	allthemods.add([
-	"minecraft:sculk",
-	"minecraft:sculk_sensor",
-	"minecraft:sculk_catalyst",
-	"minecraft:sculk_vein",
-	"minecraft:sculk_shrieker",
-	"deeperdarker:gloomy_sculk",
-	"deeperdarker:gloomy_grass",
-	"deeperdarker:glowing_flowers",
-	"deeperdarker:sculk_vines",
-	"deeperdarker:glowing_roots",
-	"deeperdarker:bloom_berries",
-	"deeperdarker:glowing_grass",
-	"deeperdarker:sculk_tendrils"],
+	let botanyPotSculk = [
+		"minecraft:sculk",
+		"minecraft:sculk_sensor",
+		"minecraft:sculk_catalyst",
+		"minecraft:sculk_vein",
+		"minecraft:sculk_shrieker"
+	]
+	if (Platform.isLoaded("deeperdarker")) {
+		botanyPotSculk = botanyPotSculk.concat([
+			"deeperdarker:gloomy_sculk",
+			"deeperdarker:gloomy_grass",
+			"deeperdarker:glowing_flowers",
+			"deeperdarker:sculk_vines",
+			"deeperdarker:glowing_roots",
+			"deeperdarker:bloom_berries",
+			"deeperdarker:glowing_grass",
+			"deeperdarker:sculk_tendrils"
+		])
+	}
+	allthemods.add(botanyPotSculk,
 	[
 		Text.of("§9In a Botany Pot: Requires a hoe enchanted with Silk Touch to be harvested")
 	])

@@ -108,15 +108,17 @@ ServerEvents.recipes(allthemods => {
     }).id("oritech:centrifuge/fluid/compat/immersiveengineering/treated_planks")
 })
 
-let $Tags = Java.loadClass("dev.latvian.mods.kubejs.util.Tags")
-let $FluidFuel = Java.loadClass("aztech.modern_industrialization.api.datamaps.FluidFuel")
+if (Platform.isLoaded("modern_industrialization") && Platform.isLoaded("aztech")) {
+    let $Tags = Java.loadClass("dev.latvian.mods.kubejs.util.Tags")
+    let $FluidFuel = Java.loadClass("aztech.modern_industrialization.api.datamaps.FluidFuel")
 
-ServerEvents.generateData("after_mods", event => {
-    let fluidFuels = DataMap.typeOf("minecraft:fluid", "modern_industrialization:fluid_fuels")
-    event.dataMap(fluidFuels, mapFile => {
-        mapFile.addTag($Tags.fluid("c:creosote"), new $FluidFuel(160))
+    ServerEvents.generateData("after_mods", event => {
+        let fluidFuels = DataMap.typeOf("minecraft:fluid", "modern_industrialization:fluid_fuels")
+        event.dataMap(fluidFuels, mapFile => {
+            mapFile.addTag($Tags.fluid("c:creosote"), new $FluidFuel(160))
+        })
     })
-})
+}
 
 // This File has been authored by AllTheMods Staff, or a Community contributor for use in AllTheMods - AllTheMods 10.
 // As all AllTheMods packs are licensed under All Rights Reserved, this file is not allowed to be used in any public packs not released by the AllTheMods Team, without explicit permission.

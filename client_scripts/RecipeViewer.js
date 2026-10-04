@@ -1,14 +1,17 @@
 // This File has been authored by AllTheMods Staff, or a Community contributor for use in AllTheMods - AllTheMod 10.
 // As all AllTheMods packs are licensed under All Rights Reserved, this file is not allowed to be used in any public packs not released by the AllTheMods Team, without explicit permission.
 
-const runicYEET = [
-    'modern_industrialization:runic_energy_output_hatch',
-    'modern_industrialization:superconductor_runic_transformer',
-    'modern_industrialization:runic_superconductor_transformer',
-    'modern_industrialization:runic_ev_transformer',
-    'modern_industrialization:runic_storage_unit',
-    'modern_industrialization:ev_runic_transformer'
-]
+let runicYEET = []
+if (Platform.isLoaded("modern_industrialization")) {
+    runicYEET = [
+        'modern_industrialization:runic_energy_output_hatch',
+        'modern_industrialization:superconductor_runic_transformer',
+        'modern_industrialization:runic_superconductor_transformer',
+        'modern_industrialization:runic_ev_transformer',
+        'modern_industrialization:runic_storage_unit',
+        'modern_industrialization:ev_runic_transformer'
+    ]
+}
 
 RecipeViewerEvents.removeEntriesCompletely('item', allthemods => {
     if (Platform.isLoaded("quarryplus")) {
