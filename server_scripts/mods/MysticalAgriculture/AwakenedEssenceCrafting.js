@@ -48,8 +48,10 @@ ServerEvents.recipes(allthemods =>{
         ).id('allthemods:mysticalagriculture/awakening/' + result.split(':').pop());
     }
 
-    allthemods.remove({output: 'reliquary:fertile_lily_pad'})
-    awakenedEssenceCrafting(40, 'minecraft:lily_pad', {item1: 'allthemodium:vibranium_plate', item2: 'reliquary:fertile_essence', item3: 'reliquary:fertile_essence', item4: 'reliquary:fertile_essence'}, 'reliquary:fertile_lily_pad')
+    if (Platform.isLoaded("reliquary")) {
+        allthemods.remove({output: 'reliquary:fertile_lily_pad'})
+        awakenedEssenceCrafting(40, 'minecraft:lily_pad', {item1: 'allthemodium:vibranium_plate', item2: 'reliquary:fertile_essence', item3: 'reliquary:fertile_essence', item4: 'reliquary:fertile_essence'}, 'reliquary:fertile_lily_pad')
+    }
 })
 
 // This File has been authored by AllTheMods Staff, or a Community contributor for use in AllTheMods - AllTheMods 10.

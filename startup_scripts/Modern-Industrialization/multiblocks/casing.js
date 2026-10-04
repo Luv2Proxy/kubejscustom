@@ -1,3 +1,4 @@
+if (Platform.isLoaded("modern_industrialization") && Platform.isLoaded("forbidden_arcanus")) {
 MIMachineEvents.registerCasings(allthemods => {
     allthemods.registerBlockImitation('darkstone_casing', 'forbidden_arcanus:polished_darkstone')
 })
@@ -30,3 +31,4 @@ MIMachineEvents.registerHatches(allthemods => {
         8, 17
     )
 })
+}

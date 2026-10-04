@@ -1,3 +1,4 @@
+if (Platform.isLoaded("modern_industrialization") && Platform.isLoaded("forbidden_arcanus")) {
 let runic_enchanter
 
 MIMachineEvents.registerRecipeTypes(allthemods => {
@@ -74,3 +75,4 @@ MIMachineEvents.registerMachines(allthemods => {
         false
     )
 })
+}

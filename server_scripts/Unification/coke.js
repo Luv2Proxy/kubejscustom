@@ -49,11 +49,11 @@ if (Platform.isLoaded("immersiveengineering")) {
 }
 
 ServerEvents.tags('item', allthemods => {
-    allthemods.add('c:coal_coke', 'modern_industrialization:coke')
-
-    allthemods.add('c:dusts/coal_coke', 'modern_industrialization:coke_dust')
-
-    allthemods.add('c:storage_blocks/coal_coke', 'modern_industrialization:coke_block')
+    if (Platform.isLoaded("modern_industrialization")) {
+        allthemods.add('c:coal_coke', 'modern_industrialization:coke')
+        allthemods.add('c:dusts/coal_coke', 'modern_industrialization:coke_dust')
+        allthemods.add('c:storage_blocks/coal_coke', 'modern_industrialization:coke_block')
+    }
 
     if (Platform.isLoaded("immersiveengineering")) {
         allthemods.add('c:dusts', 'immersiveengineering:dust_coke')
@@ -65,8 +65,10 @@ ServerEvents.tags('item', allthemods => {
 })
 
 ServerEvents.tags('fluid', allthemods => {
-    allthemods.add('c:crude_oil', 'modern_industrialization:crude_oil')
-    allthemods.add('c:fuels/crude_oil', 'modern_industrialization:crude_oil')
+    if (Platform.isLoaded("modern_industrialization")) {
+        allthemods.add('c:crude_oil', 'modern_industrialization:crude_oil')
+        allthemods.add('c:fuels/crude_oil', 'modern_industrialization:crude_oil')
+    }
 })
 
 // This File has been authored by AllTheMods Staff, or a Community contributor for use in AllTheMods - AllTheMods 10.

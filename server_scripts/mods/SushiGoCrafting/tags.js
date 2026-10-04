@@ -1,5 +1,6 @@
 //This file intended to help SushiGoCrafting crops / items be used in place of other crops / items in recipes, mirroring tags currently applied to crops / items of the same in-game name or intended purpose.
 //It's quite possible that many of these tags are redundant somehow
+if (Platform.isLoaded("sushigocrafting") && Platform.isLoaded("cookingforblockheads") && Platform.isLoaded("minecolonies") && Platform.isLoaded("twilightforest")) {
 ServerEvents.tags('item', allthemods => {
 //Soybean
     allthemods.add('c:crops', 'sushigocrafting:soy_bean')
@@ -43,3 +44,4 @@ ServerEvents.tags('item', allthemods => {
     allthemods.add('minecolonies:compostables', 'sushigocrafting:cucumber')
     allthemods.add('c:salad_ingredients/cucumber', 'sushigocrafting:cucumber')
 })
+}

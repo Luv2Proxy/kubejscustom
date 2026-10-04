@@ -1,3 +1,4 @@
+if (Platform.isLoaded("modern_industrialization") && Platform.isLoaded("forbidden_arcanus")) {
 let auto_forge
 
 MIMachineEvents.registerRecipeTypes(allthemods => {
@@ -65,3 +66,4 @@ MIMachineEvents.registerMachines(allthemods => {
         false
     )
 })
+}

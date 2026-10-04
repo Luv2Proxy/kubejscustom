@@ -7,27 +7,27 @@ ServerEvents.recipes(allthemods => {
     if (Platform.isLoaded("railcraft")) {
         allthemods.remove({ id: 'railcraft:steel_sword'})
     }
-    allthemods.remove({ id: 'immersiveengineering:crafting/sword_steel'})
+    if (Platform.isLoaded("immersiveengineering")) { allthemods.remove({ id: 'immersiveengineering:crafting/sword_steel'}) }
     allthemods.remove({ id: 'mekanismtools:steel/tools/pickaxe'})
     if (Platform.isLoaded("railcraft")) {
         allthemods.remove({ id: 'railcraft:steel_pickaxe'})
     }
-    allthemods.remove({ id: 'immersiveengineering:crafting/pickaxe_steel'})
+    if (Platform.isLoaded("immersiveengineering")) { allthemods.remove({ id: 'immersiveengineering:crafting/pickaxe_steel'}) }
     allthemods.remove({ id: 'mekanismtools:steel/tools/axe'})
     if (Platform.isLoaded("railcraft")) {
         allthemods.remove({ id: 'railcraft:steel_axe'})
     }
-    allthemods.remove({ id: 'immersiveengineering:crafting/axe_steel'})
+    if (Platform.isLoaded("immersiveengineering")) { allthemods.remove({ id: 'immersiveengineering:crafting/axe_steel'}) }
     allthemods.remove({ id: 'mekanismtools:steel/tools/shovel'})
     if (Platform.isLoaded("railcraft")) {
         allthemods.remove({ id: 'railcraft:steel_shovel'})
     }
-    allthemods.remove({ id: 'immersiveengineering:crafting/shovel_steel'})
+    if (Platform.isLoaded("immersiveengineering")) { allthemods.remove({ id: 'immersiveengineering:crafting/shovel_steel'}) }
     allthemods.remove({ id: 'mekanismtools:steel/tools/hoe'})
     if (Platform.isLoaded("railcraft")) {
         allthemods.remove({ id: 'railcraft:steel_hoe'})
     }
-    allthemods.remove({ id: 'immersiveengineering:crafting/hoe_steel'})
+    if (Platform.isLoaded("immersiveengineering")) { allthemods.remove({ id: 'immersiveengineering:crafting/hoe_steel'}) }
     allthemods.remove({ id: 'mekanismtools:steel/tools/paxel'})
 
     allthemods.shaped('mekanismtools:steel_sword', [' S ', ' S ', ' R '], {
@@ -58,10 +58,10 @@ ServerEvents.recipes(allthemods => {
     }).id('allthemods:mekanismtools/steel_paxel')
 
     // Armor
-    allthemods.remove({ id: 'immersiveengineering:crafting/armor_steel_helmet'})
-    allthemods.remove({ id: 'immersiveengineering:crafting/armor_steel_chestplate'})
-    allthemods.remove({ id: 'immersiveengineering:crafting/armor_steel_leggings'})
-    allthemods.remove({ id: 'immersiveengineering:crafting/armor_steel_boots'})
+    if (Platform.isLoaded("immersiveengineering")) { allthemods.remove({ id: 'immersiveengineering:crafting/armor_steel_helmet'}) }
+    if (Platform.isLoaded("immersiveengineering")) { allthemods.remove({ id: 'immersiveengineering:crafting/armor_steel_chestplate'}) }
+    if (Platform.isLoaded("immersiveengineering")) { allthemods.remove({ id: 'immersiveengineering:crafting/armor_steel_leggings'}) }
+    if (Platform.isLoaded("immersiveengineering")) { allthemods.remove({ id: 'immersiveengineering:crafting/armor_steel_boots'}) }
     if (Platform.isLoaded("railcraft")) {
         allthemods.remove({ id: 'railcraft:steel_helmet'})
         allthemods.remove({ id: 'railcraft:steel_chestplate'})
@@ -74,7 +74,9 @@ ServerEvents.recipes(allthemods => {
     if (Platform.isLoaded("twilightforest")) {
         allthemods.remove({ id: 'twilightforest:equipment/knightmetal_shield'})
     }
-    allthemods.remove({ id: 'undergarden:cloggrum_shield'})
+    if (Platform.isLoaded("undergarden")) {
+        allthemods.remove({ id: 'undergarden:cloggrum_shield'})
+    }
 
     allthemods.shaped('the_bumblezone:honey_crystal_shield', ['HSH', 'HHH', ' H '], {
         S: 'minecraft:shield',
@@ -86,10 +88,12 @@ ServerEvents.recipes(allthemods => {
             K: '#c:ingots/knightmetal'
         }).id('allthemods:twilightforest/knightmetal_shield')
     }
-    allthemods.shaped('undergarden:cloggrum_shield', ['CSC', 'CCC', ' C '], {
-        S: 'minecraft:shield',
-        C: '#c:ingots/cloggrum'
-    }).id('allthemods:undergarden/cloggrum_shield')
+    if (Platform.isLoaded("undergarden")) {
+        allthemods.shaped('undergarden:cloggrum_shield', ['CSC', 'CCC', ' C '], {
+            S: 'minecraft:shield',
+            C: '#c:ingots/cloggrum'
+        }).id('allthemods:undergarden/cloggrum_shield')
+    }
 })
 
 // This File has been authored by AllTheMods Staff, or a Community contributor for use in AllTheMods - AllTheMods 10.

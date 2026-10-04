@@ -39,7 +39,9 @@ ServerEvents.tags('block', allthemods => {
 
 ServerEvents.tags('fluid', allthemods => {
   // Pneumaticcraft
-  allthemods.add('c:ethanol', 'pneumaticcraft:ethanol')
+  if (Platform.isLoaded("pneumaticcraft")) {
+    allthemods.add('c:ethanol', 'pneumaticcraft:ethanol')
+  }
   allthemods.add("c:experience", "create_enchantment_industry:experience")
 })
 
@@ -49,14 +51,16 @@ ServerEvents.tags('item', allthemods => {
   allthemods.add('c:storage_blocks/raw_yellorium', 'bigreactors:raw_yellorium_block')
 
   // Tiny Coal
-  allthemods.add('atm10:tiny_coals', [
-    'utilitarian:tiny_coal',
-    'actuallyadditions:tiny_coal',
-  ])
-  allthemods.add('atm10:tiny_charcoals', [
-    'utilitarian:tiny_charcoal',
-    'actuallyadditions:tiny_charcoal',
-  ])
+  if (Platform.isLoaded("utilitarian")) {
+    allthemods.add('atm10:tiny_coals', [
+      'utilitarian:tiny_coal',
+      'actuallyadditions:tiny_coal',
+    ])
+    allthemods.add('atm10:tiny_charcoals', [
+      'utilitarian:tiny_charcoal',
+      'actuallyadditions:tiny_charcoal',
+    ])
+  }
 
   // Allthemodium Alloy Dusts
   allthemods.add('c:dusts/unobtainium_allthemodium_alloy', 'allthemodium:unobtainium_allthemodium_alloy_dust')
@@ -99,20 +103,27 @@ ServerEvents.tags('item', allthemods => {
   allthemods.add('minecraft:bookshelf_books', 'powah:book')
   allthemods.add('minecraft:bookshelf_books', 'actuallyadditions:booklet')
 
+  let eternal_incompatible = []
+  if (Platform.isLoaded("ars_additions")) { eternal_incompatible.push('ars_additions:undying_charm') }
+  if (Platform.isLoaded("modularbees")) {
+    eternal_incompatible.push('modularbees:electrode_copper', 'modularbees:electrode_iron',
+      'modularbees:electrode_gold', 'modularbees:electrode_netherite')
+  }
+  if (Platform.isLoaded("modern_industrialization")) {
+    eternal_incompatible.push(
+      "modern_industrialization:forge_hammer",
+      "modern_industrialization:iron_hammer",
+      "modern_industrialization:steel_hammer",
+      "modern_industrialization:netherite_hammer",
+      "modern_industrialization:diamond_hammer"
+    )
+  }
+  eternal_incompatible.push("#alltheores:ore_hammers")
+
   // Forbiden Arcanus Stellar Blacklist
-  allthemods.add('forbidden_arcanus:modifier/eternal_incompatible', [
-    'ars_additions:undying_charm',
-    'modularbees:electrode_copper',
-    'modularbees:electrode_iron',
-    'modularbees:electrode_gold',
-    'modularbees:electrode_netherite',
-    "modern_industrialization:forge_hammer",
-    "modern_industrialization:iron_hammer",
-    "modern_industrialization:steel_hammer",
-    "modern_industrialization:netherite_hammer",
-    "modern_industrialization:diamond_hammer",
-	"#alltheores:ore_hammers"
-  ])
+  if (Platform.isLoaded("forbidden_arcanus")) {
+    allthemods.add('forbidden_arcanus:modifier/eternal_incompatible', eternal_incompatible)
+  }
 
   // No reliquified artifacts in accessories slots
     allthemods.remove("accessories:belt", ["#artifacts:slot/belt"])
@@ -122,18 +133,22 @@ ServerEvents.tags('item', allthemods => {
     allthemods.remove("accessories:shoes", ["#artifacts:slot/feet"])
 
   // Overdrive
-  allthemods.add("industrialization_overdrive:multi_processing_array_blacklist", [
-    "modern_industrialization:auto_forge",
-    "modern_industrialization:star_altar",
-    "modern_industrialization:runic_crucible",
-    "modern_industrialization:runic_enchanter"
-  ])
-  
+  if (Platform.isLoaded("modern_industrialization")) {
+    allthemods.add("industrialization_overdrive:multi_processing_array_blacklist", [
+      "modern_industrialization:auto_forge",
+      "modern_industrialization:star_altar",
+      "modern_industrialization:runic_crucible",
+      "modern_industrialization:runic_enchanter"
+    ])
+  }
+
   // Trial Vault Repeatability for Iron's Spellbooks Boss Keys
-  allthemods.add("repeatable_trial_vaults:can_reset_trial_vaults", [
-    "irons_spellbooks:decrepit_key",
-    "irons_spellbooks:bone_key"
-  ]);
+  if (Platform.isLoaded("irons_spellbooks")) {
+    allthemods.add("repeatable_trial_vaults:can_reset_trial_vaults", [
+      "irons_spellbooks:decrepit_key",
+      "irons_spellbooks:bone_key"
+    ]);
+  }
 
   allthemods.remove("reliquified_artifacts:anglers_hat_valuables", ["#c:raw_materials"]);
 
@@ -172,43 +187,56 @@ ServerEvents.tags('entity_type', allthemods => {
 
   allthemods.add('c:capturing_not_supported', 'mekanism:robit');
     
-  allthemods.add('allthemods:jank_blacklist', [
-    "@iceandfire",
+  let jank_blacklist = [
     '@shiny',
     'ars_nouveau:animated_block',
     'artifacts:mimic',
     'create:package',
     'mekanism:robit',
-    'twilightforest:hedge_spider',
-    'twilightforest:swarm_spider',
     '#c:bosses',
-    "@occultism",
     "@productivebees",
-    "forbidden_arcanus:corrupt_lost_soul",
-    "forbidden_arcanus:lost_soul",
-    "forbidden_arcanus:enchanted_lost_soul",
     "evilcraft:vengeance_spirit",
     "the_bumblezone:bee_queen"
-  ])
-  
+  ]
+  if (Platform.isLoaded("iceandfire")) { jank_blacklist.push("@iceandfire") }
+  if (Platform.isLoaded("twilightforest")) {
+    jank_blacklist.push('twilightforest:hedge_spider', 'twilightforest:swarm_spider')
+  }
+  if (Platform.isLoaded("occultism")) { jank_blacklist.push("@occultism") }
+  if (Platform.isLoaded("forbidden_arcanus")) {
+    jank_blacklist.push("forbidden_arcanus:corrupt_lost_soul",
+      "forbidden_arcanus:lost_soul",
+      "forbidden_arcanus:enchanted_lost_soul")
+  }
+  allthemods.add('allthemods:jank_blacklist', jank_blacklist)
+
   allthemods.add('ars_nouveau:jar_blacklist', "the_bumblezone:bee_queen")
   allthemods.add('apothic_spawners:blacklisted_from_spawners', '#allthemods:jank_blacklist')
-  allthemods.add('enderio:soul_vial_blacklist', '#allthemods:jank_blacklist')
   allthemods.add('industrialforegoing:mob_duplicator_blacklist', '#allthemods:jank_blacklist')
   allthemods.add('industrialforegoing:mob_crusher_blacklist', '#allthemods:jank_blacklist')
   allthemods.add('justdirethings:paradox_deny', '#allthemods:jank_blacklist');
-  allthemods.add('tombstone:unhandled_tamable', '#allthemods:jank_blacklist')
   allthemods.add('mob_grinding_utils:no_swab', '#allthemods:jank_blacklist')
   allthemods.add('mob_grinding_utils:no_spawn', '#allthemods:jank_blacklist')
-  allthemods.add('enderio:spawner_blacklist', '#allthemods:jank_blacklist')
-  allthemods.add('ars_additions:source_spawner_denylist', '#allthemods:jank_blacklist')
   allthemods.add('oritech:spawner_blacklist', '#allthemods:jank_blacklist')
-  allthemods.add('occultism:soul_shattered_deny_list', '#allthemods:jank_blacklist')  
-  
-  allthemods.add('neovitae:deny_imprisonment', [
-	"#c:capturing_not_supported",
-	"#apothic_spawners:blacklisted_from_spawners"
-  ])
+  if (Platform.isLoaded("enderio")) {
+    allthemods.add('enderio:soul_vial_blacklist', '#allthemods:jank_blacklist')
+    allthemods.add('enderio:spawner_blacklist', '#allthemods:jank_blacklist')
+  }
+  if (Platform.isLoaded("tombstone")) {
+    allthemods.add('tombstone:unhandled_tamable', '#allthemods:jank_blacklist')
+  }
+  if (Platform.isLoaded("ars_additions")) {
+    allthemods.add('ars_additions:source_spawner_denylist', '#allthemods:jank_blacklist')
+  }
+  if (Platform.isLoaded("occultism")) {
+    allthemods.add('occultism:soul_shattered_deny_list', '#allthemods:jank_blacklist')
+  }
+  if (Platform.isLoaded("neovitae")) {
+    allthemods.add('neovitae:deny_imprisonment', [
+      "#c:capturing_not_supported",
+      "#apothic_spawners:blacklisted_from_spawners"
+    ])
+  }
 
 })
 
@@ -224,7 +252,9 @@ ServerEvents.tags('enchantment', allthemods => {
 
 ServerEvents.tags('block_entity_type', allthemods => {
   // Apoth Enchanting
-  allthemods.remove('packingtape:blacklist/problematic', ["extrastorage:block_16384k_fluid", "extrastorage:block_65536k_fluid", "extrastorage:block_262144k_fluid", "extrastorage:block_1048576k_fluid"]);
+  if (Platform.isLoaded("packingtape")) {
+    allthemods.remove('packingtape:blacklist/problematic', ["extrastorage:block_16384k_fluid", "extrastorage:block_65536k_fluid", "extrastorage:block_262144k_fluid", "extrastorage:block_1048576k_fluid"]);
+  }
 });
 
 ServerEvents.tags('item', allthemods => {
@@ -553,9 +583,11 @@ ServerEvents.tags('worldgen/biome', allthemods => {
 
 ServerEvents.tags('mob_effect', allthemods => {
   
-  allthemods.add('irons_spellbooks:cleanse_immune', [
-    "cataclysm:ghost_sickness"
-  ]);
+  if (Platform.isLoaded("irons_spellbooks")) {
+    allthemods.add('irons_spellbooks:cleanse_immune', [
+      "cataclysm:ghost_sickness"
+    ]);
+  }
 
 });
 

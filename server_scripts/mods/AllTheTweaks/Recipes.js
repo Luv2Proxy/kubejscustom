@@ -1,3 +1,4 @@
+if (Platform.isLoaded("allthetweaks")) {
 ServerEvents.recipes(allthemods =>{
   allthemods.remove({output: 'allthetweaks:greg_star'})
   allthemods.remove({output: 'allthetweaks:greg_star_block'})
@@ -6,3 +7,4 @@ ServerEvents.recipes(allthemods =>{
       allthemods.remove({output: `allthecompressed:greg_star_block_${i}x`})}
   }
 })
+}

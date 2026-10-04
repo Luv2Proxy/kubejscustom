@@ -1,3 +1,4 @@
+if (Platform.isLoaded("modern_industrialization") && Platform.isLoaded("forbidden_arcanus")) {
 let star_altar
 
 MIMachineEvents.registerRecipeTypes(allthemods => {
@@ -75,3 +76,4 @@ MIMachineEvents.registerMachines(allthemods => {
         false
     )
 })
+}

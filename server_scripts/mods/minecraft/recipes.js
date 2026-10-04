@@ -66,22 +66,24 @@ ServerEvents.recipes(allthemods => {
         allthemods.custom(recipe).id(`kubejs:enchanting_apparatus/${id}`);
     }
 
-    enchanting_apparatus(
-        {item: 'minecraft:sculk_shrieker'},
-        [
-            {item: 'minecraft:sculk_catalyst'},
-            {item: 'minecraft:sculk'},
-            {item: 'minecraft:sculk_catalyst'},
-            {item: 'minecraft:sculk'},
-            {item: 'minecraft:sculk_catalyst'},
-            {item: 'minecraft:sculk'},
-            {item: 'minecraft:sculk_catalyst'},
-            {item: 'minecraft:sculk'}],
-        {item: 'deeperdarker:heart_of_the_deep'},
-        false,
-        1000,
-        'sculk_shrieker'
-    );
+    if (Platform.isLoaded("deeperdarker")) {
+        enchanting_apparatus(
+            {item: 'minecraft:sculk_shrieker'},
+            [
+                {item: 'minecraft:sculk_catalyst'},
+                {item: 'minecraft:sculk'},
+                {item: 'minecraft:sculk_catalyst'},
+                {item: 'minecraft:sculk'},
+                {item: 'minecraft:sculk_catalyst'},
+                {item: 'minecraft:sculk'},
+                {item: 'minecraft:sculk_catalyst'},
+                {item: 'minecraft:sculk'}],
+            {item: 'deeperdarker:heart_of_the_deep'},
+            false,
+            1000,
+            'sculk_shrieker'
+        );
+    }
 })
 
 // This File has been authored by AllTheMods Staff, or a Community contributor for use in AllTheMods - AllTheMods 10.

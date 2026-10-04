@@ -1,6 +1,7 @@
 // This File has been authored by AllTheMods Staff, or a Community contributor for use in AllTheMods - AllTheMods 10.
 // As all AllTheMods packs are licensed under All Rights Reserved, this file is not allowed to be used in any public packs not released by the AllTheMods Team, without explicit permission.
 
+if (Platform.isLoaded("allthecompressed")) {
 ServerEvents.recipes(allthemods => {
 
     function cell(output, item, typeA, typeB, component){
@@ -43,7 +44,6 @@ ServerEvents.recipes(allthemods => {
     cell('kubejs:kivi_cell', 'allthecompressed:kivi_5x', 'allthemodium:soul_lava_bucket', 'minecraft:water_bucket', 'megacells:cell_component_256m')
     cell('kubejs:ancient_stone_cell', 'allthecompressed:ancient_stone_5x', 'allthemodium:soul_lava_bucket', 'minecraft:lava_bucket', 'megacells:cell_component_256m')
 
-
     cell('kubejs:white_cell', 'allthecompressed:white_concrete_6x', 'minecraft:lava_bucket', 'minecraft:water_bucket', 'megacells:cell_component_256m')
     cell('kubejs:light_gray_cell', 'allthecompressed:light_gray_concrete_6x', 'minecraft:lava_bucket', 'minecraft:water_bucket', 'megacells:cell_component_256m')
     cell('kubejs:gray_cell', 'allthecompressed:gray_concrete_6x', 'minecraft:lava_bucket', 'minecraft:water_bucket', 'megacells:cell_component_256m')
@@ -61,6 +61,7 @@ ServerEvents.recipes(allthemods => {
     cell('kubejs:magenta_cell', 'allthecompressed:magenta_concrete_6x', 'minecraft:lava_bucket', 'minecraft:water_bucket', 'megacells:cell_component_256m')
     cell('kubejs:pink_cell', 'allthecompressed:pink_concrete_6x', 'minecraft:lava_bucket', 'minecraft:water_bucket', 'megacells:cell_component_256m')
 })
+}
 
 // This File has been authored by AllTheMods Staff, or a Community contributor for use in AllTheMods - AllTheMods 10.
 // As all AllTheMods packs are licensed under All Rights Reserved, this file is not allowed to be used in any public packs not released by the AllTheMods Team, without explicit permission.

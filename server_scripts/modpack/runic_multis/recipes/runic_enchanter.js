@@ -1,4 +1,4 @@
-if (Platform.isLoaded("modern_industrialization") && Platform.isLoaded("enderio")) {
+if (Platform.isLoaded("modern_industrialization") && Platform.isLoaded("forbidden_arcanus") && Platform.isLoaded("enderio")) {
 ServerEvents.recipes(allthemods => {
     allthemods.recipes.modern_industrialization.runic_enchanter(512, 1000)
         .itemIn('minecraft:witch_spawn_egg')

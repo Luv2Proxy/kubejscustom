@@ -3,6 +3,7 @@
 
 // Standardizing salt use in some of Pam's recipes.
 
+if (Platform.isLoaded("pamhc2foodcore") && Platform.isLoaded("minecolonies")) {
 ServerEvents.recipes(allthemods => {
   
   ;["pamhc2foodcore:friesitem",
@@ -79,3 +80,4 @@ ServerEvents.tags('item', event => {
 
 // This File has been authored by AllTheMods Staff, or a Community contributor for use in AllTheMods - AllTheMods 10.
 // As all AllTheMods packs are licensed under All Rights Reserved, this file is not allowed to be used in any public packs not released by the AllTheMods Team, without explicit permission.
+}

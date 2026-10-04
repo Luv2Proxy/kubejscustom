@@ -1,4 +1,4 @@
-if (Platform.isLoaded("modern_industrialization") && Platform.isLoaded("forbidden_arcanus") && Platform.isLoaded("enderio")) {
+if (Platform.isLoaded("modern_industrialization") && Platform.isLoaded("forbidden_arcanus") && Platform.isLoaded("enderio") && Platform.isLoaded("mysticalagradditions")) {
 ServerEvents.recipes(allthemods => {
 
     if (Platform.isLoaded('modular_machinery_reborn')) {

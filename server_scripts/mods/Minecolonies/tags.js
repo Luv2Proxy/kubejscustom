@@ -1,5 +1,6 @@
 //This file intended to help Minecolonies crops / items be used in place of other crops / items in recipes, mirroring tags currently applied to crops / items of the same in-game name or intended purpose.
 //It's quite possible that many of these tags are redundant somehow
+if (Platform.isLoaded("minecolonies") && Platform.isLoaded("cookingforblockheads") && Platform.isLoaded("herbsandharvest") && Platform.isLoaded("livingthings") && Platform.isLoaded("tombstone") && Platform.isLoaded("twilightforest")) {
 ServerEvents.tags('item', allthemods => {
 //Bread Dough
     allthemods.add('c:foods', 'minecolonies:bread_dough')
@@ -274,3 +275,4 @@ ServerEvents.tags('item', allthemods => {
     allthemods.add('minecolonies:raw_ore', 'allthemodium:raw_allthemodium')
     allthemods.add('minecolonies:raw_ore', 'allthemodium:raw_unobtainium')
 })
+}

@@ -28,7 +28,9 @@ ServerEvents.recipes(allthemods => {
         }
     )
 
-    allthemods.replaceInput({ mod: "railcraft"}, "railcraft:steel_shovel", "mekanismtools:steel_shovel")
+    if (Platform.isLoaded("railcraft")) {
+        allthemods.replaceInput({ mod: "railcraft" }, "railcraft:steel_shovel", "mekanismtools:steel_shovel")
+    }
 
     // Concrete from Concrete Powder using Water Buckets
     const colors = [
@@ -47,7 +49,9 @@ ServerEvents.recipes(allthemods => {
     });
 
     // Remove Raw Redstone Block Recipe
-    allthemods.remove({id: 'regions_unexplored:raw_redstone_block'});
+    if (Platform.isLoaded("regions_unexplored")) {
+        allthemods.remove({id: 'regions_unexplored:raw_redstone_block'});
+    }
 
     // Dense Uraninite Ore Energizing Recipes
     allthemods.remove({ id: 'powah:energizing/uraninite_from_ore' })
@@ -97,7 +101,9 @@ ServerEvents.recipes(allthemods => {
         }
     })
 
-    allthemods.replaceInput({output: 'crafting_on_a_stick:crafting_table'}, 'minecraft:crafting_table', '#c:player_workstations/crafting_tables')
+    if (Platform.isLoaded("crafting_on_a_stick")) {
+        allthemods.replaceInput({output: 'crafting_on_a_stick:crafting_table'}, 'minecraft:crafting_table', '#c:player_workstations/crafting_tables')
+    }
 
     allthemods.shapeless(
         Item.of('minecraft:crafting_table'),
@@ -121,12 +127,14 @@ ServerEvents.recipes(allthemods => {
             C: `#c:dusts/saltpeter`
         }
     ).id("allthemods:saltpeter_block")
-	allthemods.shapeless(
-        Item.of('railcraft:saltpeter_dust', 9),
-        [
-            'kubejs:saltpeter_block'
-        ]
-	).id("allthemods:saltpeter_dust_from_block")
+	if (Platform.isLoaded("railcraft")) {
+		allthemods.shapeless(
+			Item.of('railcraft:saltpeter_dust', 9),
+			[
+				'kubejs:saltpeter_block'
+			]
+		).id("allthemods:saltpeter_dust_from_block")
+	}
 
     if (Platform.isLoaded("allthecompressed")) {
     for (let i = 1; i < 10; ++i) {

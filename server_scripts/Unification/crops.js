@@ -1,7 +1,7 @@
 // This File has been authored by AllTheMods Staff, or a Community contributor for use in AllTheMods - AllTheMods 10.
 // As all AllTheMods packs are licensed under All Rights Reserved, this file is not allowed to be used in any public packs not released by the AllTheMods Team, without explicit permission.
 
-if (Platform.isLoaded("herbsandharvest")) {
+if (Platform.isLoaded("herbsandharvest") && Platform.isLoaded("rftoolsutility") && Platform.isLoaded("extended_industrialization") && Platform.isLoaded("diet")) {
 ServerEvents.tags('item', allthemods => {
   let tags = ['rftoolsutility:living/highyield', 'extended_industrialization:farmer_plantable', 'c:salad_ingredients', 'c:crops/asparagus', 'c:vegetables', 'rftoolsutility:living/living', 'c:salad_ingredients/asparagus', 'c:vegetables/asparagus', 'c:crops']
   tags.forEach(tag => { allthemods.add(tag, 'herbsandharvest:asparagus') })

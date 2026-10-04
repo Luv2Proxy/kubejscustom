@@ -3,7 +3,6 @@
 
 const runicYEET = [
     'modern_industrialization:runic_energy_output_hatch',
-    'extended_industrialization:runic_tesla_receiver_hatch',
     'modern_industrialization:superconductor_runic_transformer',
     'modern_industrialization:runic_superconductor_transformer',
     'modern_industrialization:runic_ev_transformer',
@@ -12,9 +11,13 @@ const runicYEET = [
 ]
 
 RecipeViewerEvents.removeEntriesCompletely('item', allthemods => {
-    allthemods.remove('quarryplus:adv_quarry')
-    allthemods.remove('allthetweaks:greg_star')
-    allthemods.remove('allthetweaks:greg_star_block')
+    if (Platform.isLoaded("quarryplus")) {
+        allthemods.remove('quarryplus:adv_quarry')
+    }
+    if (Platform.isLoaded("allthetweaks")) {
+        allthemods.remove('allthetweaks:greg_star')
+        allthemods.remove('allthetweaks:greg_star_block')
+    }
 
     if (Platform.isLoaded("allthecompressed")) {
         for (let i = 1; i < 10; i++) {
@@ -23,36 +26,46 @@ RecipeViewerEvents.removeEntriesCompletely('item', allthemods => {
     }
 
     //allthemods.remove('relics:researching_table')
-    allthemods.remove("extradisks:infinite_chemical_storage_block")
-    allthemods.remove("extradisks:infinite_chemical_storage_disk")
-    allthemods.remove("extradisks:infinite_chemical_storage_part")
-    allthemods.remove("extradisks:infinite_fluid_storage_block")
-    allthemods.remove("extradisks:infinite_fluid_storage_disk")
-    allthemods.remove("extradisks:infinite_fluid_storage_part")
-    allthemods.remove("extradisks:infinite_item_storage_block")
-    allthemods.remove("extradisks:infinite_item_storage_disk")
-    allthemods.remove("extradisks:infinite_item_storage_part")
-
-    let $DyeColor = Java.loadClass("net.minecraft.world.item.DyeColor")
-    for (let color of $DyeColor.values()) {
-        allthemods.remove(`/refinedstorage:${color}_.*/`)
+    if (Platform.isLoaded("extradisks")) {
+        allthemods.remove("extradisks:infinite_chemical_storage_block")
+        allthemods.remove("extradisks:infinite_chemical_storage_disk")
+        allthemods.remove("extradisks:infinite_chemical_storage_part")
+        allthemods.remove("extradisks:infinite_fluid_storage_block")
+        allthemods.remove("extradisks:infinite_fluid_storage_disk")
+        allthemods.remove("extradisks:infinite_fluid_storage_part")
+        allthemods.remove("extradisks:infinite_item_storage_block")
+        allthemods.remove("extradisks:infinite_item_storage_disk")
+        allthemods.remove("extradisks:infinite_item_storage_part")
     }
 
-    allthemods.remove('mekmm:scrap')
-    allthemods.remove('mekmm:scrap_box')
-    allthemods.remove('mekmm:empty_crystal')
-    allthemods.remove('mekmm:uu_matter')
-    allthemods.remove('mekmm:ambient_gas_collector')
-    allthemods.remove(/mekmm:.*replicat.*/)
-    allthemods.remove(/mekmm:.*recycl.*/)
-    allthemods.remove(/mekmm:.*planting.*/)
-    allthemods.remove('mekmm:cnc_lathe')
-    allthemods.remove(/mekmm:.*lathing.*/)
-    allthemods.remove(/mekmm:.*rolling_mill.*/)
+    if (Platform.isLoaded("refinedstorage")) {
+        let $DyeColor = Java.loadClass("net.minecraft.world.item.DyeColor")
+        for (let color of $DyeColor.values()) {
+            allthemods.remove(`/refinedstorage:${color}_.*/`)
+        }
+    }
 
-    allthemods.remove("supplementaries:faucet")
+    if (Platform.isLoaded("mekmm")) {
+        allthemods.remove('mekmm:scrap')
+        allthemods.remove('mekmm:scrap_box')
+        allthemods.remove('mekmm:empty_crystal')
+        allthemods.remove('mekmm:uu_matter')
+        allthemods.remove('mekmm:ambient_gas_collector')
+        allthemods.remove(/mekmm:.*replicat.*/)
+        allthemods.remove(/mekmm:.*recycl.*/)
+        allthemods.remove(/mekmm:.*planting.*/)
+        allthemods.remove('mekmm:cnc_lathe')
+        allthemods.remove(/mekmm:.*lathing.*/)
+        allthemods.remove(/mekmm:.*rolling_mill.*/)
+    }
 
-    allthemods.remove('ars_elemental:glyph_nullify_defense')
+    if (Platform.isLoaded("supplementaries")) {
+        allthemods.remove("supplementaries:faucet")
+    }
+
+    if (Platform.isLoaded("ars_elemental")) {
+        allthemods.remove('ars_elemental:glyph_nullify_defense')
+    }
 })
 
 // RecipeViewerEvents.removeEntriesCompletely('mekanism:chemical', allthemods => {

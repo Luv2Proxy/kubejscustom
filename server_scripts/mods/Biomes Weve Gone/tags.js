@@ -1,5 +1,6 @@
 // Biomes We've Gone; blueberries tag unification
 
+if (Platform.isLoaded("biomeswevegone") && Platform.isLoaded("minecolonies")) {
 ServerEvents.tags('item', allthemods => {
 
 allthemods.add('c:crops', 'biomeswevegone:blueberries')
@@ -13,3 +14,4 @@ allthemods.add('minecolonies:compostables', 'biomeswevegone:blueberries')
 allthemods.add('minecolonies:blacksmith_ingredient_excluded', 'biomeswevegone:blueberries')
 
 })
+}

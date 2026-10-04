@@ -1,3 +1,4 @@
+if (Platform.isLoaded("forbidden_arcanus")) {
 ServerEvents.generateData('after_mods', allthemods => {
 
     const relics = {
@@ -82,3 +83,4 @@ ServerEvents.generateData('after_mods', allthemods => {
         )
     })
 })
+}

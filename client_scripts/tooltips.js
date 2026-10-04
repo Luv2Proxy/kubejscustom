@@ -151,10 +151,13 @@ ItemEvents.modifyTooltips(allthemods => {
         Text.of("§c(Blocks like Modular Routers, Clickers, etc)")
     ])
 
-    allthemods.add('toolbelt:belt', [
-        Text.of("§7Has it's own slot to be placed in"),
-        Text.of("§7Check your Keybinds for \"Open Belt Slot Inventory\"")
-    ])
+//Tool Belt
+    if (Platform.isLoaded("toolbelt")) {
+        allthemods.add('toolbelt:belt', [
+            Text.of("Â§7Has it's own slot to be placed in"),
+            Text.of("Â§7Check your Keybinds for \"Open Belt Slot Inventory\"")
+        ])
+    }
 
 	//Easy Villagers
     allthemods.add(['easy_villagers:trader', 'easy_villagers:auto_trader'], [

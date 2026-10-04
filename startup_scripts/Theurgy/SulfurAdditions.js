@@ -1,6 +1,7 @@
 // This File has been authored by AllTheMods Staff, or a Community contributor for use in AllTheMods - AllTheMods 10.
 // As all AllTheMods packs are licensed under All Rights Reserved, this file is not allowed to be used in any public packs not released by the AllTheMods Team, without explicit permission.
 
+if (Platform.isLoaded("theurgy") && Platform.isLoaded("forbidden_arcanus") && Platform.isLoaded("occultism") && Platform.isLoaded("irons_spellbooks")) {
 StartupEvents.registry('item', allthemods => {
     //Forbidden Arcanus
     allthemods.create('stellarite_sulfur', 'theurgy:alchemical_sulfur')
@@ -55,6 +56,7 @@ StartupEvents.registry('item', allthemods => {
         .sulfurType("earthen_matters")
         
 })
+}
 
 
 // This File has been authored by AllTheMods Staff, or a Community contributor for use in AllTheMods - AllTheMods 10.

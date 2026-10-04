@@ -3,7 +3,7 @@
 
 ServerEvents.recipes(allthemods => {
     //Modularium Plates
-        if (Platform.isLoaded('modular_machinery_reborn')) {
+        if (Platform.isLoaded("modular_machinery_reborn") && Platform.isLoaded("enderio") && Platform.isLoaded("forbidden_arcanus") && Platform.isLoaded("immersiveengineering") && Platform.isLoaded("productivetrees")) {
             allthemods.recipes.modern_industrialization.compressor(2, 200)
                 .itemIn('modular_machinery_reborn:modularium')
                 .itemOut('kubejs:modularium_plate')

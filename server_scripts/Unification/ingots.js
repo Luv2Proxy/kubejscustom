@@ -10,7 +10,9 @@ ServerEvents.recipes(allthemods => {
     }
     allthemods.remove({ id: 'silentgear:bronze_ingot'})
     allthemods.remove({ id: 'mysticalagriculture:essence/extremereactors2/yellorium_ingot'})
-    allthemods.remove({ id: 'modern_industrialization:materials/bronze_dust'})
+    if (Platform.isLoaded("modern_industrialization")) {
+        allthemods.remove({ id: 'modern_industrialization:materials/bronze_dust'})
+    }
 
     // Smelting
     if (Platform.isLoaded("deeperdarker")) {
@@ -37,7 +39,9 @@ ServerEvents.recipes(allthemods => {
     allthemods.remove({ id: 'mekanism:processing/osmium/ingot/from_ore_blasting'})
     allthemods.remove({ id: 'mekanism:processing/tin/ingot/from_ore_smelting'})
     allthemods.remove({ id: 'mekanism:processing/tin/ingot/from_ore_blasting'})
-    allthemods.remove({ id: 'immersiveengineering:smelting/ingot_uranium'})
+    if (Platform.isLoaded("immersiveengineering")) {
+        allthemods.remove({ id: 'immersiveengineering:smelting/ingot_uranium'})
+    }
     allthemods.remove({ id: 'bigreactors:blasting/yellorium_from_ore'})
 })
 

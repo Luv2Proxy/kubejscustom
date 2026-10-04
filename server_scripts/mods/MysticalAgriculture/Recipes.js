@@ -9,42 +9,48 @@ ServerEvents.recipes(allthemods => {
         A: 'mysticalagriculture:rubber_essence'
     }).id('allthemods:essence/industrialforegoing/rubber')
 
-    allthemods.shaped('kubejs:magical_soil', ['ABC', 'DEF', 'GHI'], {
-        A: 'mysticalagradditions:insanium_block',
-        B: 'allthecompressed:nether_star_block_2x',
-        C: 'allthecompressed:dirt_3x',
-        D: 'mysticalagriculture:awakened_supremium_growth_accelerator',
-        E: 'mysticalagradditions:insanium_farmland',
-        F: 'minecraft:dragon_head',
-        G: 'allthemodium:piglich_heart',
-        H: 'allthecompressed:ender_pearl_block_3x',
-        I: 'productivetrees:moonlight_magic_crepe_myrtle_sapling'
-    }).id('allthemods:kjs/magical_soil')
+    if (Platform.isLoaded("mysticalagradditions") && Platform.isLoaded("allthecompressed") && Platform.isLoaded("productivetrees")) {
+        allthemods.shaped('kubejs:magical_soil', ['ABC', 'DEF', 'GHI'], {
+            A: 'mysticalagradditions:insanium_block',
+            B: 'allthecompressed:nether_star_block_2x',
+            C: 'allthecompressed:dirt_3x',
+            D: 'mysticalagriculture:awakened_supremium_growth_accelerator',
+            E: 'mysticalagradditions:insanium_farmland',
+            F: 'minecraft:dragon_head',
+            G: 'allthemodium:piglich_heart',
+            H: 'allthecompressed:ender_pearl_block_3x',
+            I: 'productivetrees:moonlight_magic_crepe_myrtle_sapling'
+        }).id('allthemods:kjs/magical_soil')
+    }
 
-    allthemods.shaped('mysticalagradditions:withering_soul',
-        [
-            'PRP',
-            'BSB',
-            'PRP'
-        ], {
-            B: 'productivebees:configurable_comb[productivebees:bee_type="productivebees:withered"]',
-            P: 'hostilenetworks:prediction[hostilenetworks:data_model="hostilenetworks:wither"]',
-            R: 'reliquary:witherless_rose',
-            S: 'minecraft:wither_skeleton_skull',
-        }
-    ).id('allthemods:mysticalagradditions/withering_soul')
+    if (Platform.isLoaded("mysticalagradditions") && Platform.isLoaded("reliquary")) {
+        allthemods.shaped('mysticalagradditions:withering_soul',
+            [
+                'PRP',
+                'BSB',
+                'PRP'
+            ], {
+                B: 'productivebees:configurable_comb[productivebees:bee_type="productivebees:withered"]',
+                P: 'hostilenetworks:prediction[hostilenetworks:data_model="hostilenetworks:wither"]',
+                R: 'reliquary:witherless_rose',
+                S: 'minecraft:wither_skeleton_skull',
+            }
+        ).id('allthemods:mysticalagradditions/withering_soul')
+    }
 
-    allthemods.shaped('enderio:enderman_head',
-        [
-            'eee',
-            'ebe',
-            'eee'
-        ],
-        {
-            b: 'mysticalagriculture:blank_skull',
-            e: 'mysticalagriculture:enderman_essence'
-        }
-    ).id('allthemods:essence/enderio/enderman_head')
+    if (Platform.isLoaded("enderio")) {
+        allthemods.shaped('enderio:enderman_head',
+            [
+                'eee',
+                'ebe',
+                'eee'
+            ],
+            {
+                b: 'mysticalagriculture:blank_skull',
+                e: 'mysticalagriculture:enderman_essence'
+            }
+        ).id('allthemods:essence/enderio/enderman_head')
+    }
 
     // Warped Wart Blocks
     allthemods.shaped('8x minecraft:warped_wart_block', [' A ', 'A  ', 'AAA'], {

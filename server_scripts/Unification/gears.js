@@ -3,6 +3,7 @@
 
 ServerEvents.recipes(allthemods => {
 
+    if (Platform.isLoaded("modern_industrialization")) {
     allthemods.remove({ id: 'modern_industrialization:materials/aluminum/craft/gear'})
     allthemods.remove({ id: 'modern_industrialization:materials/tin/craft/gear'})
     allthemods.remove({ id: 'modern_industrialization:materials/steel/craft/gear'})
@@ -11,6 +12,7 @@ ServerEvents.recipes(allthemods => {
     allthemods.remove({ id: 'modern_industrialization:materials/iron/craft/gear'})
     allthemods.remove({ id: 'modern_industrialization:materials/copper/craft/gear'})
     allthemods.remove({ id: 'modern_industrialization:materials/gold/craft/gear'})
+  }
     if (Platform.isLoaded("railcraft")) {
         allthemods.remove({ id: 'railcraft:lead_gear'})
         allthemods.remove({ id: 'railcraft:nickel_gear'})
@@ -28,14 +30,18 @@ ServerEvents.recipes(allthemods => {
     allthemods.remove({ id: 'industrialforegoing:iron_gear'})
     allthemods.remove({ id: 'industrialforegoing:gold_gear'})
     allthemods.remove({ id: 'industrialforegoing:diamond_gear'})
-    allthemods.remove({ id: 'enderio:iron_gear'})
-    allthemods.remove({ id: 'enderio:wood_gear_corner'})
-    allthemods.remove({ id: 'pneumaticcraft:compressed_iron_gear'})
+    if (Platform.isLoaded("enderio")) {
+        allthemods.remove({ id: 'enderio:iron_gear'})
+        allthemods.remove({ id: 'enderio:wood_gear_corner'})
+    }
+    if (Platform.isLoaded("pneumaticcraft")) {
+        allthemods.remove({ id: 'pneumaticcraft:compressed_iron_gear'})
 
-    allthemods.shaped('pneumaticcraft:compressed_iron_gear', [' C ', 'CNC', ' C '], {
-        C: 'pneumaticcraft:ingot_iron_compressed',
-        N: 'minecraft:iron_nugget'
-    }).id('allthemods:pneumaticcraft/compressed_iron_gear')
+        allthemods.shaped('pneumaticcraft:compressed_iron_gear', [' C ', 'CNC', ' C '], {
+            C: 'pneumaticcraft:ingot_iron_compressed',
+            N: 'minecraft:iron_nugget'
+        }).id('allthemods:pneumaticcraft/compressed_iron_gear')
+    }
 
 })
 
