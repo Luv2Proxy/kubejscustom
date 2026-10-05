@@ -1,3 +1,4 @@
+if (Platform.isLoaded("farmingforblockheads")) {
 ServerEvents.recipes(allthemods => {
     allthemods.custom(
         {
@@ -47,3 +48,4 @@ ServerEvents.recipes(allthemods => {
         }
     )
 })
+}

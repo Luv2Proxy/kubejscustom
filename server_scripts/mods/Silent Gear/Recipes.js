@@ -2,6 +2,7 @@
 // As all AllTheMods packs are licensed under All Rights Reserved, this file is not allowed to be used in any public packs not released by the AllTheMods Team, without explicit permission.
 
 ServerEvents.recipes(allthemods => {
+    if (Platform.isLoaded("farmingforblockheads")) {
     allthemods.custom(
         {
             "type": "farmingforblockheads:market",
@@ -25,6 +26,7 @@ ServerEvents.recipes(allthemods => {
             }
         }
     )
+}
     //adds a chainmail salvage, mirroring the crafting recipe from MineColonies, which uses vanilla Iron items rather than Modern Industrialization Iron Rings
     //Chainmail Helmet
     allthemods.custom(
@@ -54,6 +56,7 @@ ServerEvents.recipes(allthemods => {
 		    "results": [{"count": 2, "id": "minecraft:iron_nugget" }, {"count":2,"id":"minecraft:iron_ingot"}]
 	    }
     )
+    if (Platform.isLoaded("pneumaticcraft")) {
     //Adds Pneumaticraft's Compressed Iron Armor to the Salvager
     //Compressed Iron Helmet
     allthemods.custom(
@@ -83,6 +86,8 @@ ServerEvents.recipes(allthemods => {
 		    "results": [{"count": 4, "id": "minecraft:leather" }, {"count":4,"id":"pneumaticcraft:ingot_iron_compressed"}]
 	    }
     )
+}
+    if (Platform.isLoaded("everythingcopper")) {
 	//adds Everything is Copper gear to the Salvager
 	//Copper Pickaxe
     allthemods.custom(
@@ -161,6 +166,8 @@ ServerEvents.recipes(allthemods => {
 		    "results": [{"count":1, "id": "minecraft:copper_ingot" }, {"count":2,"id":"minecraft:stick"}]
 	    }
     )
+}
+    if (Platform.isLoaded("aether")) {
 	 //Aether gloves salvaging
     //Leather Gloves
     allthemods.custom(
@@ -204,6 +211,7 @@ ServerEvents.recipes(allthemods => {
 		    "results": [{"count":2, "id": "minecraft:diamond"}, {"count":1, "id":"minecraft:netherite_ingot"}]
 	    }
     )
+}
     //	MEKANISM
     //	LAPIS LAZULI TOOLS
     //	PAXEL
